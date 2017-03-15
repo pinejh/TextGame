@@ -15,9 +15,13 @@ function enter() {
     if(textBox.value.substring(0, 1) != '/') {
       socket.emit('enter', name, ID, textBox.value);
     } else {
-      if(textBox.value.length >= 11 && textBox.value.substring(0, 5) == '/msg ') {
-        str = textBox.value.substring(5, 10);
-        socket.emit('pm', {'name': name, 'id':ID}, parseInt(str, 10), textBox.value.substring(11, textBox.value.length));
+      if(textBox.value.length >= 5 && textBox.value.substring(0, 5) == '/msg ') {
+        if(textBox.value.length >= 11) {
+          str = textBox.value.substring(5, 10);
+          socket.emit('pm', {'name': name, 'id':ID}, parseInt(str, 10), textBox.value.substring(11, textBox.value.length));
+        } else {
+          alert('Private message syntax:\n/msg <target id> [message]');
+        }
       } else {
         alert('Command unrecognized...');
       }

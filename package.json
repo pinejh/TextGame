@@ -1,0 +1,14 @@
+{
+  "name": "TextGame",
+  "version": "0.0.0",
+  "description": "testing socketio for a text-based multiplayer web game",
+  "main": "index.html",
+  "author": "Jake Pine",
+  "license": "MIT",
+  "devDependencies": {
+    "socket.io": "*"
+  },
+  "dependencies": {
+    "express": "^4.10.2"
+  }
+}
